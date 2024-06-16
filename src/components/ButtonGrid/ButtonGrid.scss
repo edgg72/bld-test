@@ -1,0 +1,30 @@
+@use '../../base';
+
+.button-grid-container {
+  background: white;
+  height: 50px;
+  width: 70%;
+  max-width: 800px;
+  margin-left: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  &__button {
+    padding: 10px 32px;
+    border: none;
+    background: base.$light-gray;
+    border-radius: 20px;
+  }
+  &__button:hover {
+    cursor: pointer;
+  }
+}
+
+@media (width <= 900px) {
+  .button-grid-container {
+    margin-top: 24px;
+    width: 90%;
+    max-width: unset;
+  }
+}
