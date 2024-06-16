@@ -24,7 +24,7 @@ export const SalesGrid = ({range}) => {
               {sale?.successfulCharge && (
                 <div className="deduction">
                   <p>{"Deducción Bold"}</p>
-                  <p>{`-$${Math.trunc(sale?.amount * 0.299)}`}</p>
+                  <p>{`-$${Math.trunc(sale?.amount * 0.299).toLocaleString("de-DE")}`}</p>
                 </div>
               )}
             </div>
