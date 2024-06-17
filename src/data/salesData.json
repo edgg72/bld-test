@@ -5,7 +5,7 @@
     "date": "2024-09-16",
     "paymentMethod": "4521345821457711",
     "id": "J1BZE98YEZ0A",
-    "amount": "15000"
+    "amount": 15000
   },
   {
     "transaction": "link",
@@ -13,7 +13,7 @@
     "date": "2024-09-15",
     "id": "9QHPLDH8D8D6",
     "paymentMethod": "4521345821457711",
-    "amount": "20050"
+    "amount": 20050
   },
   {
     "transaction": "link",
@@ -21,7 +21,7 @@
     "date": "2024-09-03",
     "id": "BNALT4GWVFIW",
     "paymentMethod": "4521345821457711",
-    "amount": "40000"
+    "amount": 40000
   },
   {
     "transaction": "datafono",
@@ -29,7 +29,7 @@
     "date": "2024-06-14",
     "id": "C4ONAR9LON9D",
     "paymentMethod": "4521345821457711",
-    "amount": "30075"
+    "amount": 30075
   },
   {
     "transaction": "datafono",
@@ -37,6 +37,6 @@
     "date": "2024-06-12",
     "id": "9ISKFDCU420O",
     "paymentMethod": "4521345821457711",
-    "amount": "50025"
+    "amount": 50025
   }
 ]

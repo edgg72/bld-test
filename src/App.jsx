@@ -26,6 +26,7 @@ function App() {
           <ButtonGrid
             buttonList={BUTTON_LIST}
             onClickHandler={onClickHandler}
+            currentRangeSelection={currentRangeSelection}
           />
         </section>
         
