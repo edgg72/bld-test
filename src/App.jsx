@@ -11,6 +11,7 @@ function App() {
 
   const [currentRangeSelection, setCurrentRangeSelection] = useState(BUTTON_LIST[0] || "");
 
+
   const onClickHandler = (range) => {
     console.log(range);
     setCurrentRangeSelection(range)
