@@ -10,9 +10,8 @@
 }
 
 .main {
-  width: 100vw;
   padding: 32px;
-
+  background: inherit;
   .upper-section {
     display: flex;
     justify-content: space-between;

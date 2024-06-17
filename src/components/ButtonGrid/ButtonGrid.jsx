@@ -2,12 +2,19 @@ import { useEffect, useState } from "react";
 
 import "./ButtonGrid.scss";
 import { FilterLogoSVG } from "../../assets/FilterLogoSVG";
+import { RadioButton } from "../RadioButton/RadioButton";
+import strings from '../../strings/strings.json'
 
 export const ButtonGrid = ({ buttonList = ["Default"], onClickHandler, currentRangeSelection }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isActive, setIsActive] = useState(null)
+  const [selectedOption, setSelectedOption] = useState('');
 
   const closeModal = () => setIsOpen(false);
+  console.log(strings)
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+  }
 
   return (
     <div className="button-grid-container">
@@ -27,12 +34,19 @@ export const ButtonGrid = ({ buttonList = ["Default"], onClickHandler, currentRa
         <button>FILTRAR </button>
         <FilterLogoSVG />
       </div>
-        {isOpen && <Modal isOpen={isOpen} onClose={closeModal} />}
+        {isOpen && 
+          <Modal
+            isOpen={isOpen}
+            onClose={closeModal}
+            selectedOption={selectedOption}
+            handleChange={handleChange}
+          />
+        }
     </div>
   );
 };
 
-export const Modal = ({ isOpen, onClose }) => {
+export const Modal = ({ isOpen, onClose, selectedOption, handleChange }) => {
   if (!isOpen) return null;
 
   return (
@@ -41,10 +55,23 @@ export const Modal = ({ isOpen, onClose }) => {
           <p>FILTRAR</p> 
           <button className="close-button" onClick={onClose}>X</button>
         </div>
-        <p>Cobros con datafono</p>
-        <p>Cobros con link de pago</p>
-        <p>Ver todos</p>
-        <button>Aplicar</button>
+        <div className="modal__options">
+          <form action="">
+          {Object.values(strings[0]).map((el, index) => (
+            <RadioButton
+              key={index}
+              label={el}
+              value={el}
+              name={"options"}
+              selectedOption={selectedOption}
+              handleChange={handleChange}
+            />
+          ))}
+          </form>
+
+          <button>Aplicar</button>
+        </div>
       </div>
   );
 };
+

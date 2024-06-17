@@ -12,9 +12,9 @@
   &__header {
     font-size: 16px;
     font-weight: bold;
-    background: linear-gradient(90deg, base.$blue 5%, base.$red 70%);
+    background: base.$gradient-1;
     color: white;
-    padding: 16px 0;
+    padding: 16px 12px;
     border-radius: 12px 12px 0 0 ;
   }
   &__amount {
@@ -22,7 +22,7 @@
     margin: 10px 0;
     font-weight: bold;
     p {
-      background-image: linear-gradient(90deg, base.$blue 5%, base.$red 100%);
+      background-image: base.$gradient-1;
       color: transparent;
       background-clip: text;
       -webkit-background-clip: text;

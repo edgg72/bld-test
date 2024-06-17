@@ -5,7 +5,7 @@
   background-color: white;
   border-radius: 12px;
   &__title {
-    background: linear-gradient(90deg, base.$blue 70%, base.$red 100%);
+    background: base.$gradient-2;
     height: 50px;
     display: flex;
     align-items: center;
@@ -35,15 +35,28 @@
   &__item {
     padding: 16px 24px;
     color: base.$dark-gray;
+    display: flex;
+    align-items: center;
+
     &.odd, &.even, &.amount > *:not(.deduction) {
       color: base.$blue;
     }
+
+    &.odd, &.even {
+      gap: 10px;
+    }
+
     &.odd {
       border-left: 3px solid base.$blue;
     }
 
     &.even {
       border-left: 3px solid base.$dark-gray;
+    }
+
+    &.amount {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .deduction {

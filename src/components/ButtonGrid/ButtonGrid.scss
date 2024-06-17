@@ -1,7 +1,18 @@
 @use '../../base';
 
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .button-grid-container {
-  height: 120px;
+  height: auto;
   width: 65%;
   max-width: 800px;
   margin-left: 24px;
@@ -20,7 +31,7 @@
     background: white;
     &--button {
       height: 40px;
-      padding: 10px 32px;
+      padding: 10px 38px;
       border: none;
       border-radius: 20px;
       background-color: transparent;
@@ -59,7 +70,7 @@
 
 .modal {
   position: absolute;
-  top: 200px;
+  top: 230px;
   right: 32px;
   background-color: white;
   width: 300px;
@@ -69,7 +80,7 @@
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.6);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.6);
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.6);
-  
+  animation: modalFadeIn 0.3s ease-out;
 
   &__close-section {
     display: flex;
@@ -84,12 +95,55 @@
       cursor: pointer;
     }
   }
+  &__options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 80%;
+    label input {
+      margin-right: 10px;
+    }
+    button {
+      align-self: center;
+      border: none;
+      background-color: base.$red;
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      height: 50px;
+      width: 150px;
+    }
+  }
 }
 
 @media (width <= 900px) {
   .button-grid-container {
     margin-top: 24px;
-    width: 90%;
+    margin-left: 0;
+    width: 100%;
+    padding: 0;
     max-width: unset;
+    &__range {
+      margin-bottom: 16px;
+      
+    }
+  }
+  .modal {
+    top: 370px;
+  }
+}
+
+@media (width <= 768px) {
+  .button-grid-container__range {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 0;
+    &--button.active {
+      width: 90%;
+    }
+  }
+  .modal {
+    top: 470px;
   }
 }
