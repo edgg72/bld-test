@@ -5,12 +5,17 @@ import { FilterLogoSVG } from "../../assets/FilterLogoSVG";
 import { RadioButton } from "../RadioButton/RadioButton";
 import strings from '../../strings/strings.json'
 
-export const ButtonGrid = ({ buttonList = ["Default"], onClickHandler, currentRangeSelection }) => {
+export const ButtonGrid = ({
+  buttonList = ["Default"],
+  onClickHandler,
+  currentRangeSelection,
+  selectedOption,
+  setSelectedOption,
+  handleApply
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
 
   const closeModal = () => setIsOpen(false);
-  console.log(strings)
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -34,19 +39,20 @@ export const ButtonGrid = ({ buttonList = ["Default"], onClickHandler, currentRa
         <button>FILTRAR </button>
         <FilterLogoSVG />
       </div>
-        {isOpen && 
+        {isOpen &&
           <Modal
             isOpen={isOpen}
             onClose={closeModal}
             selectedOption={selectedOption}
             handleChange={handleChange}
+            handleApply={handleApply}
           />
         }
     </div>
   );
 };
 
-export const Modal = ({ isOpen, onClose, selectedOption, handleChange }) => {
+export const Modal = ({ isOpen, onClose, selectedOption, handleChange, handleApply }) => {
   if (!isOpen) return null;
 
   return (
@@ -69,7 +75,7 @@ export const Modal = ({ isOpen, onClose, selectedOption, handleChange }) => {
           ))}
           </form>
 
-          <button>Aplicar</button>
+          <button onClick={handleApply} >Aplicar</button>
         </div>
       </div>
   );

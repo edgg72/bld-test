@@ -101,13 +101,20 @@
     align-items: flex-start;
     justify-content: space-evenly;
     height: 80%;
-    label input {
-      margin-right: 10px;
+    form div {
+      margin-bottom: 10px;
+      input {
+        margin-right: 10px;
+      }
+      input, label {
+        cursor: pointer;
+      }
     }
     button {
       align-self: center;
       border: none;
       background-color: base.$red;
+      cursor: pointer;
       color: white;
       font-weight: bold;
       border-radius: 25px;

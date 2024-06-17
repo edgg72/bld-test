@@ -6,13 +6,16 @@ import { ButtonGrid } from "./components/ButtonGrid/ButtonGrid";
 import { SalesGrid } from "./components/SalesGrid/SalesGrid";
 import SalesData from"./data/salesData.json"
 import { isDateInRange, isDateSeptember } from "./utils/dateValidator";
+import strings from './strings/strings.json'
 
 const BUTTON_LIST = ["Hoy", "Esta semana", "Septiembre"];
 const TODAY = "2024-09-16";
 
 function App() {
-  const [currentRangeSelection, setCurrentRangeSelection] = useState("");
+  const rangeFilter = sessionStorage.getItem('range');
+  const [currentRangeSelection, setCurrentRangeSelection] = useState(rangeFilter ? rangeFilter :"");
   const [salesData, setSalesData] = useState(SalesData)
+  const [selectedOption, setSelectedOption] = useState('');
 
   const filteredSales = salesData.filter((sale, index) => {
     switch (currentRangeSelection) {
@@ -32,8 +35,24 @@ function App() {
   })
 
   const onClickHandler = (range) => {
-    console.log(range);
+    sessionStorage.setItem('range', range);
     setCurrentRangeSelection(range);
+  };
+
+  const handleApply = async () => {
+    await setSalesData(filteredSales);
+    if (selectedOption === strings[0].seeAll) {
+      setSalesData(filteredSales);
+      return;
+    }
+    const filterByTransactionType = filteredSales.filter((el, index) => {
+      if (el.transaction === "link" && selectedOption === strings[0].link) {
+        return el;
+      } else if (el.transaction === "datafono" && selectedOption === strings[0].dataphone) {
+        return el
+      } 
+    })
+    setSalesData(filterByTransactionType);
   };
 
   return (
@@ -46,11 +65,15 @@ function App() {
             buttonList={BUTTON_LIST}
             onClickHandler={onClickHandler}
             currentRangeSelection={currentRangeSelection}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            handleApply={handleApply}
           />
         </section>
         <SalesGrid
           salesData={filteredSales}
           range={currentRangeSelection}
+          selectedOption={selectedOption}
         />
       </main>
     </div>

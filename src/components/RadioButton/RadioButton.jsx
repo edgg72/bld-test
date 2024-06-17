@@ -1,5 +1,4 @@
 export const RadioButton = ({ name, value, handleChange, label, selectedOption }) => {
-  console.log(value)
   return (
     <div>
       <input

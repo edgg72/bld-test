@@ -4,5 +4,12 @@
       "dataphone": "Cobros con datafono",
       "link": "Cobros con link de pago",
       "seeAll": "Ver todos"
+    },
+    {
+      "grid.transaction": "Transacción",
+      "grid.date": "Fecha y hora",
+      "grid.payment.method": "Método de pago",
+      "grid.id": "ID transacción Bold",
+      "grid.amount": "Monto"
     }
   ]
