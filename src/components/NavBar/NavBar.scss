@@ -10,12 +10,22 @@
   min-height: 100px;
   &__buttons {
     display: flex;
+    margin-left: 10px;
     button {
       border: none;
       background: none;
       color: white;
-      margin-right: 32px;
+      
       cursor: pointer;
     }
+    button:first-child {
+      margin-right: 32px;
+    }
+  }
+}
+
+@media (width <= 900px) {
+  .navbar {
+    padding: 0 24px;
   }
 }
